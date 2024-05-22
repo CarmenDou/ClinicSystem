@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Attacks</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addAttack()">Add Attack</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let attack of attacks">
+      <ion-label>
+        <h2>{{ attack.attackDateTime |date:'yyyy-MM-dd HH:mm:ss'}}</h2>
+        <p>{{ attack.location }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="editAttack(attack.attackId)">Edit</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>
+

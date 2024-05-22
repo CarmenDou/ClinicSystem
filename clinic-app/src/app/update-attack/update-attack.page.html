@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Edit Attack
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form (ngSubmit)="onSubmit()">
+    &nbsp;&nbsp;&nbsp;&nbsp;Are you in the room? &nbsp;
+    <ion-radio-group [(ngModel)]="attack.location" name="location">
+      <ion-radio value="inside">inside</ion-radio>
+      <ion-radio value="outside">outside</ion-radio><br />
+    </ion-radio-group>
+    <ion-datetime [(ngModel)]="attack.attackDateTime" name="attackDateTime"></ion-datetime><br/>
+    <!-- <input type="text" class="form-control" id="location" [(ngModel)]="attack.location" name="location">
+    <input type="text" class="form-control" id="attackDateTime" [(ngModel)]="attack.attackDateTime" name="attackDateTime"> -->
+    <ion-button type="submit">Submit</ion-button>
+  </form>
+</ion-content>
+

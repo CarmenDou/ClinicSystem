@@ -1,0 +1,25 @@
+<h2>Patient List</h2>
+<table class="table table-striped">
+    <thead>
+        <th>username</th>
+        <th>alert (or not)</th>
+        <th>last time of report</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let participantAttack of participantAttacks">
+            <td>{{participantAttack.userName}}</td>
+            <td>
+                <div *ngIf="participantAttack.alert" class="alert alert-danger" role="alert" style="display: inline-block;">
+                    not reported attacks for more than 2 days before today!
+                </div>
+            </td>
+            <td>{{participantAttack.lastReportTime|date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>
+                <button (click)="patientDetail(participantAttack.participantId)" class = "btn btn-info" style="margin-left: 10px">Detail</button>
+                <!-- <button (click)="patientReport(participantAttack.participantId)" class = "btn btn-primary" style="margin-left: 10px">Report</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+

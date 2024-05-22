@@ -1,0 +1,37 @@
+<h2>Patient Detail</h2>
+<table class="table table-striped">
+    <thead>
+        <th>#</th>
+        <th>attack date</th>
+        <th>attack time</th>
+        <th>location</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let attack of attacks; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{attack.attackDateTime|date:'yyyy-MM-dd'}}</td>
+            <td>{{attack.attackDateTime|date:'HH:mm:ss'}}</td>
+            <td>{{attack.location}}</td>
+        </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <li class="page-item pointer" [ngClass]="0 == currentPage ? 'disabled' : ''">
+            <a (click)="goToNextOrPreviousPage('backward')" class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo; Previous</span>
+            </a>
+          </li>
+        <li *ngFor="let pageNumber of [].constructor(totalPages); let i = index;" class="page-item pointer" [ngClass]="i == currentPage ? ' active' : ''">
+            <a (click)="goToPage(i)" class="page-link">
+                {{i+1}}
+            </a>
+        </li>
+        <li class="page-item pointer" [ngClass]="totalPages-1 == currentPage ? 'disabled' : ''">
+            <a (click)="goToNextOrPreviousPage('forward')" class="page-link" aria-label="Next">
+            <span aria-hidden="true">Next &raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<app-attack-report></app-attack-report>
