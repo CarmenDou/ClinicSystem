@@ -42,7 +42,7 @@ This system consists of three main components:
   | ------------------------------------------------ | ----------- |
   | An identification for the participant (app user) | **N**       |
   | Report attack (Raynauds occurred) on a time      | Y           |
-  | Raynauds daily report                            | **N**       |
+  | Raynauds daily report                            | Y           |
 
 ## Overview
 
@@ -117,6 +117,10 @@ This system consists of three main components:
         ![attack](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/Attack.jpg)
 
   - Raynauds daily report
+  
+    - A **bar chart** to show the daily number of records reported by a participant **past seven days since TODAY**
+  
+      ![AppDashboard](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/AppDashboard.jpg)
 
 ## Other
 
