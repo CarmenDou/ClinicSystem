@@ -28,4 +28,9 @@ export class AttackService {
   updateAttack(id: number, attack: Attack):Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/attack/${id}`,attack);
   }
+
+  getLastSevenDaysReports(participantId: number): Observable<Attack[]>{
+    const url = `${this.baseURL}/attackReport/${participantId}`;
+    return this.httpClient.get<Attack[]>(`${url}`);
+  }
 }
