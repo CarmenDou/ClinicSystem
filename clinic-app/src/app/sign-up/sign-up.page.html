@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Sign up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" size-sm="12" size-xs="12">
+        <ion-item>ID: {{deviceId?.identifier}}</ion-item>
+        <ion-item>name: {{info?.name}}</ion-item>
+        <ion-item>model: {{info?.model}}</ion-item>
+        <ion-item>platform: {{info?.platform}}</ion-item>
+        <ion-item>operatingSystem: {{info?.operatingSystem}}</ion-item>
+        <ion-item>osVersion: {{info?.osVersion}}</ion-item>
+        <ion-item>manufacturer: {{info?.manufacturer}}</ion-item>
+        <ion-item>isVirtual: {{info?.isVirtual}}</ion-item>
+        <ion-item>memUsed: {{info?.memUsed}}</ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <form (ngSubmit)="submit()">
+    <ion-item>
+      UserName: <ion-input name="userName" [(ngModel)]="inputUserName"></ion-input>
+    </ion-item>
+    <ion-button type="submit">Submit</ion-button>
+  </form>  
+</ion-content>

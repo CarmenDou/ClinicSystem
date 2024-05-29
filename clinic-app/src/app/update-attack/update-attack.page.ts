@@ -16,12 +16,7 @@ export class UpdateAttackPage implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.attackService.getAttackById(this.id).subscribe(data => {
-      // console.log(data);
       this.attack = data[0];
-      // console.log("this.attack");
-      // console.log(this.attack);
-      // console.log(this.attack.attackDateTime);
-      // console.log(this.attack.location);
     })
   }
 
@@ -33,6 +28,6 @@ export class UpdateAttackPage implements OnInit {
   }
 
   goToAttackList() {
-    this.router.navigate(['attack-list']);
+    this.router.navigate(['/tabs/tab2']);
   }
 }

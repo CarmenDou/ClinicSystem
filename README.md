@@ -40,7 +40,7 @@ This system consists of three main components:
 
   | Functions                                        | Done or not |
   | ------------------------------------------------ | ----------- |
-  | An identification for the participant (app user) | **N**       |
+  | An identification for the participant (app user) | Y           |
   | Report attack (Raynauds occurred) on a time      | Y           |
   | Raynauds daily report                            | Y           |
 
@@ -86,6 +86,16 @@ This system consists of three main components:
 
   - An identification for the participant (app user)
 
+    - Ask the participant to input the username **for the first time using the app**.
+
+    - Send the username and device uuid to the server and save in database
+
+    - Since the second time use of the app, the app should remember the username of the participant. Besides, the username should always be shown on top with words like "Hello, xxx"
+
+      ![Signup](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/Signup.jpg)
+
+      ![Home](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/Home.jpg)
+
   - Report attack (Raynauds occurred) on a time (attacks may be reported MORE THAN ONCE in one day)
 
     - Add attack
@@ -107,15 +117,15 @@ This system consists of three main components:
       - Update the record you already created within the day just in case you input the wrongly attack information.
 
         ![editAttack](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/EditAttack.jpg)
-
+  
         ![attackListAfterEdit](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/AttackListAfterEdit.jpg)
-
+  
     - List today's attacks
-
+  
       - Show a list of the day's records in app till next day in case of editing (i.e. **in app**, at the beginning of the day the records should be empty. Reported records will retain till the end of the day (11:59 PM), and can be edited. On the second day (12:00 AM), the list should be refreshed.
-
+  
         ![attack](https://github.com/CarmenDou/ClinicSystem/blob/master/demoImages/Attack.jpg)
-
+  
   - Raynauds daily report
   
     - A **bar chart** to show the daily number of records reported by a participant **past seven days since TODAY**

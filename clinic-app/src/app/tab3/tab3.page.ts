@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {EChartsOption} from 'echarts';
 import { AttackService } from '../attack.service';
 import * as moment from 'moment';
+import { ParticipantService } from '../participant.service';
+import { Participant } from '../participant';
 
 
 @Component({
@@ -13,10 +15,22 @@ export class Tab3Page implements OnInit{
   options: EChartsOption = {}
   data_x! : any[]
   data_y! : any[]
-  constructor(private attackService: AttackService) {}
+  participant: Participant = new Participant();
+  constructor(private attackService: AttackService, private participantService: ParticipantService) {}
 
   ngOnInit(): void {
-    this.attackService.getLastSevenDaysReports(14).subscribe(reports => {
+    this.participantService.participant$.subscribe(participant => {
+      if (participant !== null) {
+        // console.log("participantId");
+        // console.log(participantId);
+        this.loadReport(participant.participantId);
+      }
+    })
+    
+  }
+
+  loadReport(id:number){
+    this.attackService.getLastSevenDaysReports(id).subscribe(reports => {
       this.data_y = new Array(7).fill(0);
       const now = moment();
 

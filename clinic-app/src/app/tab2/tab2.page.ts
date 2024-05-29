@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AttackService } from '../attack.service';
 import { Attack } from '../attack';
 import { Router } from '@angular/router';
+import { ParticipantService } from '../participant.service';
 
 @Component({
   selector: 'app-tab2',
@@ -10,18 +11,18 @@ import { Router } from '@angular/router';
 })
 export class Tab2Page implements OnInit{
   attacks!: Attack[];
-  constructor(private attackService: AttackService, private router: Router) {}
+  constructor(private attackService: AttackService, private router: Router, private participantService: ParticipantService) {}
 
   ngOnInit(): void {
-    console.log("ngOnInit")
-    this.loadAttacks();
+    this.participantService.participant$.subscribe(participant => {
+      if (participant !== null) {
+        this.loadAttacks(participant.participantId);
+      }
+    })
   }
-  loadAttacks() {
-    console.log("loadAttacks");
-    this.attackService.getTodayAttacksByParticipantId(14).subscribe(response => {
-      console.log(response);
+  loadAttacks(participantId:any) {
+    this.attackService.getTodayAttacksByParticipantId(participantId).subscribe(response => {
       this.attacks = response;
-      console.log(this.attacks);
     })
   }
 

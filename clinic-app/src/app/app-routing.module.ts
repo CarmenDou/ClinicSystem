@@ -15,8 +15,16 @@ const routes: Routes = [
     loadChildren: () => import('./tab2/tab2.module').then(m => m.Tab2PageModule)
   },
   {
-    path: 'create-attack',
+    path: 'home',
     loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
+  },
+  {
+    path: 'sign-up',
+    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
+  },
+  {
+    path: 'create-attack',
+    loadChildren: () => import('./add-attack/add-attack.module').then( m => m.AddAttackPageModule)
   },
 ];
 @NgModule({
